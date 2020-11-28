@@ -1,0 +1,14 @@
+.container-peliculas {
+    height: auto;
+    overflow: hidden;
+    h3 {
+        font-weight: 300;
+        padding: 45px 0 20px;
+        font-size: 20px;
+        .icon-arrow {
+            margin-left: 15px;
+            color:rgb(33, 150, 243);
+        }
+    }
+
+}
