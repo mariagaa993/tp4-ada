@@ -7,7 +7,7 @@ function MainContainer() {
     return (
         <main className="main-container">
             <ContainerPeliculas />
-            <ContainerSeries />
+            {/* <ContainerSeries /> */}
         </main>
     )
 }
