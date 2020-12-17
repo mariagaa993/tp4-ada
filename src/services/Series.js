@@ -10,4 +10,34 @@ export const getSeriesData = async () => {
     catch(err){
         throw new Error(`Unhandled : ${err}`);
     }
+};
+
+export const getPopularSeriesData = async () => {
+    try{
+        const seriesData = await axios.get(`${API_URL}tv/popular?api_key=${API_KEY}`)
+        return seriesData.data.results;
+    }
+    catch(err){
+        throw new Error(`Unhandled : ${err}`);
+    }
+};
+
+export const getTopRatedSeriesData = async () => {
+    try{
+        const seriesData = await axios.get(`${API_URL}tv/top_rated?api_key=${API_KEY}`)
+        return seriesData.data.results;
+    }
+    catch(err){
+        throw new Error(`Unhandled : ${err}`);
+    }
+};
+
+export const getOnAirSeriesData = async () => {
+    try{
+        const seriesData = await axios.get(`${API_URL}tv/on_the_air?api_key=${API_KEY}`)
+        return seriesData.data.results;
+    }
+    catch(err){
+        throw new Error(`Unhandled : ${err}`);
+    }
 }

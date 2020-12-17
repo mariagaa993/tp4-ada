@@ -1,7 +1,17 @@
+@import "../../scss/mixins.scss";
+
 .main-container {
     background-color: rgb(54, 57, 63);
     color: rgb(220, 221, 222);
-    height: calc(100vh - 60px);
     overflow: auto;
-    padding: 0 15px;
+    padding: 35px 15px 70px;
+    @include breakpoint-tablet {
+        padding: 35px 15px 60px;
+    }
+    @include breakpoint-tablet-desktop {
+        padding: 35px 15px 70px;
+    }
+    @include breakpoint-desktop-1 {
+        padding: 35px 15px 40px;
+    }
 }

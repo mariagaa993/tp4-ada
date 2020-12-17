@@ -10,4 +10,34 @@ export const getMoviesData = async () => {
     catch(err){
         throw new Error(`Unhandled : ${err}`);
     }
+};
+
+export const getPopularMoviesData = async () => {
+    try{
+        const movieData = await axios.get(`${API_URL}movie/popular?api_key=${API_KEY}`)
+        return movieData.data.results;
+    }
+    catch(err){
+        throw new Error(`Unhandled : ${err}`);
+    }
+};
+
+export const getTopRatedMoviesData = async () => {
+    try{
+        const movieData = await axios.get(`${API_URL}movie/top_rated?api_key=${API_KEY}`)
+        return movieData.data.results;
+    }
+    catch(err){
+        throw new Error(`Unhandled : ${err}`);
+    }
+};
+
+export const getNowPlayingMoviesData = async () => {
+    try{
+        const movieData = await axios.get(`${API_URL}movie/now_playing?api_key=${API_KEY}`)
+        return movieData.data.results;
+    }
+    catch(err){
+        throw new Error(`Unhandled : ${err}`);
+    }
 }
