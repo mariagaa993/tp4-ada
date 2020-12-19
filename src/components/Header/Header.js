@@ -1,22 +1,23 @@
 import React from 'react';
+import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faHome, faTv, faVideo } from '@fortawesome/free-solid-svg-icons'
-import './Header.scss';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header className="header">
+            <section className="header-menu">
+                <Link className="header-menu-button" to={{pathname: `/`}}><FontAwesomeIcon icon={faHome} /></Link>
+                <Link className="header-menu-button" to={{pathname: `/movie`}}><FontAwesomeIcon icon={faVideo} /></Link>
+                <Link className="header-menu-button" to={{pathname: `/tv`}}><FontAwesomeIcon icon={faTv} /></Link>
+            </section>
             <section className="header-container">
                 <button className="header-container-button"><FontAwesomeIcon icon={faSearch} /></button>
                 <input className="header-container-input" placeholder="Búsqueda..." />
             </section>
-            <section className="header-menu">
-                <button className="header-menu-button"><FontAwesomeIcon icon={faHome} /></button>
-                <button className="header-menu-button"><FontAwesomeIcon icon={faVideo} /></button>
-                <button className="header-menu-button"><FontAwesomeIcon icon={faTv} /></button>
-            </section>
         </header>
-    )
+    );
 }
 
 export default Header;

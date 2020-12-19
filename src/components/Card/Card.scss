@@ -1,18 +1,66 @@
+@import "../../scss/mixins.scss";
+
 .container-card {
     overflow: hidden;
-    padding: 0 5px;
-    height: 480px;
+    padding: 0 10px;
+    height: 460px;
+    margin-bottom: 20px;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    @include breakpoint-mobile-2 {
+        justify-content: space-between;
+        height: 327px;
+    }
+    @include breakpoint-tablet {  
+        height: 413px;
+    }
+    @include breakpoint-tablet-desktop {
+        height: 510px;
+    }
+    @include breakpoint-desktop-1 {
+        height: 460px;
+    }
+    @include breakpoint-desktop-2 {
+        height: 470px;
+    }
     .card {
-        margin-bottom: 20px;
+        margin-bottom: 70px;
         width: 100%;
+        height: auto;
+        @include breakpoint-mobile-2 {
+            width: 49%;
+        }
+        @include breakpoint-tablet {
+            width: 32.50%;
+        }
+        @include breakpoint-tablet-desktop {
+            width: 32.70%;
+        }
+        @include breakpoint-desktop-1 {
+            width: 25%;
+        }
+        @include breakpoint-desktop-2 {
+            width: 19.50%;
+        }
         .card-img {
             width: 100%;
         }
-        .card-img-titulo{
+        .card-img-titulo {
             p {
                 padding: 10px 0;
                 font-size: 16px;
+                font-weight: 100;
+                @include breakpoint-mobile-2 {
+                    padding: 14px 0;
+                }
+                @include breakpoint-tablet {
+                    font-size: 20px;
+                    font-weight: 100;
+                }
+                @include breakpoint-tablet-desktop {
+                    padding: 20px 0;
+                }
             }
         }
     }

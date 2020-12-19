@@ -1,14 +1,13 @@
-import React from 'react';
-import Header from './components/Header/Header';
-import MainContainer from './components/MainContainer/MainContainer';
+import React, { Fragment } from 'react';
 import './App.scss';
+import Routes from './routes/Routes';
 
 const App = () => {
+
   	return (
-		<React.Fragment>
-      		<Header />
-			<MainContainer />
-		</React.Fragment>
+		<Fragment>
+    		<Routes />
+		</Fragment>
   	);
 }
 

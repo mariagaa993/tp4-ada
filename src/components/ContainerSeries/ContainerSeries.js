@@ -1,25 +1,30 @@
-// import React, { useReducer, useEffect } from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-// import './ContainerSeries.scss'
-// import Card from '../Card/Card';
-// import { getSeriesData } from '../../services/Series';
-// import { INIT_DATA, ReducerSeries } from '../../reducers/Reducers';
+import React, { useEffect, useReducer } from 'react'
+import ListSeries from '../listSeries/ListSeries';
+import { getPopularSeriesData, getTopRatedSeriesData, getOnAirSeriesData } from '../../services/Series';
+import { INIT_DATA, reducer } from '../../reducers/Reducers';
 
-// function ContainerSeries() {
-//     const [dataSeries, seriesDispatch] = useReducer(ReducerSeries, []);
+const ContainerSeries = () => {
+    const [dataPopularSeries, popularSeriesDispatch] = useReducer(reducer, []);
+    const [dataTopRatedSeries, topRatedSeriesDispatch] = useReducer(reducer, []);
+    const [dataOnAirSeries, onAirSeriesDispatch] = useReducer(reducer, []);
 
-//     useEffect(() => {
-//         const promise = getSeriesData();
-//         promise.then(data => seriesDispatch({ type: INIT_DATA, payload: data }));
-//     }, [])
+    useEffect(() => {
+        const promise = getPopularSeriesData();
+        promise.then(data => popularSeriesDispatch({ type: INIT_DATA, payload: data }));
+        const promise1 = getTopRatedSeriesData();
+        promise1.then(data => topRatedSeriesDispatch({ type: INIT_DATA, payload: data }));
+        const promise2 = getOnAirSeriesData();
+        promise2.then(data => onAirSeriesDispatch({ type: INIT_DATA, payload: data }));
+    }, []);
 
-//     return (
-//         <div className="container-series">
-//             <h3>Series que son tendencia <FontAwesomeIcon className="icon-arrow" icon={faArrowRight} /></h3>
-//             <Card dataSeries={dataSeries}/>
-//         </div>
-//     )
-// }
+    return (
+        <div className="container-peliculas">
+            <ListSeries 
+                dataPopularSeries={dataPopularSeries} 
+                dataTopRatedSeries={dataTopRatedSeries}
+                dataOnAirSeries={dataOnAirSeries} />
+        </div>
+    );
+}
 
-// export default ContainerSeries;
+export default ContainerSeries;
