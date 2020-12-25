@@ -4,6 +4,7 @@ import ListData from '../listData/ListData';
 import { getMoviesData } from '../../services/Movies';
 import { getSeriesData } from '../../services/Series';
 import { INIT_DATA, reducer } from '../../reducers/Reducers';
+import DataContext from '../../context/DataContext';
 
 const ContainerPeliculas = () => {
     const [dataMovies, moviesDispatch] = useReducer(reducer, []);
@@ -17,9 +18,11 @@ const ContainerPeliculas = () => {
     }, []);
 
     return (
-        <div className="container-peliculas">
-            <ListData dataMovies={dataMovies} dataSeries={dataSeries} />
-        </div>
+        <DataContext.Provider value={{dataMovies, dataSeries}}>
+            <div className="container-peliculas">
+                <ListData  />
+            </div>
+        </DataContext.Provider>
     );
 }
 

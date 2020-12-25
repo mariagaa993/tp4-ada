@@ -1,9 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+import DataContext from '../../context/DataContext';
 import Card from '../Card/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import {Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
-const ListData = ({dataMovies, dataSeries}) => {
+const ListData = () => {
+const {dataMovies, dataSeries} = useContext(DataContext);
+const {id} = useParams()
 
   	return (
         <Fragment>
@@ -12,12 +17,14 @@ const ListData = ({dataMovies, dataSeries}) => {
                 {
                     dataMovies.map(movie => {
                         return(
-                            <Card
-                                key={movie.id}
-                                id={movie.id}
-                                poster={movie.poster_path}
-                                title={movie.title}                       
-                            />
+                            // <Link to={`/movie/${movie.id}`}>
+                                <Card
+                                    key={movie.id}
+                                    id={movie.id}
+                                    poster={movie.poster_path}
+                                    title={movie.title}                       
+                                />
+                            // </Link>
                         );
                     })
                 }
@@ -27,12 +34,15 @@ const ListData = ({dataMovies, dataSeries}) => {
                 {
                     dataSeries.map(serie => {
                         return(
-                            <Card
-                                key={serie.id}
-                                id={serie.id} 
-                                poster={serie.poster_path}
-                                title={serie.name}                    
-                            />
+                            // <Link to={`/tv/${serie.id}`}>
+                                <Card 
+                                    key={serie.id}
+                                    id={serie.id} 
+                                    poster={serie.poster_path}
+                                    title={serie.name}
+                                    > 
+                                </Card>
+                            // </Link>
                         );
                     })
                 }

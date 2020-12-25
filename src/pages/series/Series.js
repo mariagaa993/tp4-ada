@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import ContainerSeries from '../../components/containerSeries/ContainerSeries';
+import ContainerSeries from '../../components/ContainerSeries/ContainerSeries';
 import Header from '../../components/Header/Header';
 
 function MainContainer() {

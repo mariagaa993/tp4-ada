@@ -2,8 +2,11 @@ import React, { Fragment } from 'react';
 import Card from '../Card/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import {Link} from 'react-router-dom';
+// import {useParams} from 'react-router-dom';
 
 const ListSeries = ({dataPopularSeries, dataTopRatedSeries, dataOnAirSeries}) => {
+    // const {id} = useParams()
 
   	return (
         <Fragment>
@@ -12,12 +15,14 @@ const ListSeries = ({dataPopularSeries, dataTopRatedSeries, dataOnAirSeries}) =>
                 {
                     dataPopularSeries.map(serie => {
                         return(
-                            <Card
-                                key={serie.id}
-                                id={serie.id}
-                                poster={serie.poster_path}
-                                title={serie.name}                       
-                            />
+                            <Link to={`/tv/${serie.id}`}>
+                                <Card
+                                    key={serie.id}
+                                    id={serie.id}
+                                    poster={serie.poster_path}
+                                    title={serie.name}                       
+                                />
+                            </Link>
                         );
                     })
                 }
